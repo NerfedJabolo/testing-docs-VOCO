@@ -1,0 +1,545 @@
+{
+  "meta": {
+    "project": "box-testing-master",
+    "testedAt": "esmaspäev, 16. november 2026, kell 12:12:40",
+    "startedAt": "2026-11-16T10:12:40.070Z",
+    "durationMs": 9910,
+    "browser": "Chromium 158.0.8127.18",
+    "playwright": "1.65.0",
+    "node": "v26.13.1",
+    "os": "Linux 7.0.0-43-generic x64",
+    "baseUrl": "file:///home/sten/Documents/workspace/box-testing-master/box-testing-master"
+  },
+  "summary": {
+    "total": 43,
+    "pass": 30,
+    "fail": 13,
+    "error": 0,
+    "byArea": {
+      "black-box": {
+        "total": 11,
+        "pass": 8,
+        "fail": 3,
+        "error": 0
+      },
+      "gray-box": {
+        "total": 12,
+        "pass": 8,
+        "fail": 4,
+        "error": 0
+      },
+      "white-box": {
+        "total": 9,
+        "pass": 6,
+        "fail": 3,
+        "error": 0
+      },
+      "ui": {
+        "total": 5,
+        "pass": 2,
+        "fail": 3,
+        "error": 0
+      },
+      "integration": {
+        "total": 2,
+        "pass": 2,
+        "fail": 0,
+        "error": 0
+      },
+      "nonfunctional": {
+        "total": 4,
+        "pass": 4,
+        "fail": 0,
+        "error": 0
+      }
+    },
+    "defects": [
+      "D-01",
+      "D-02",
+      "D-03",
+      "D-04",
+      "D-05",
+      "D-06",
+      "D-07",
+      "D-08",
+      "D-09",
+      "D-10",
+      "D-11"
+    ]
+  },
+  "cases": [
+    {
+      "id": "BB-01",
+      "area": "black-box",
+      "title": "Valiidne kontaktvormi esitamine",
+      "expected": "Kuvatakse eduteade „Vorm esitati edukalt!“ ja ühtegi veateadet ei kuvata.",
+      "actual": "dialoogid=[\"Vorm esitati edukalt!\"]; vead=[\"\",\"\",\"\"]",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 307,
+      "screenshot": "docs/screenshots/BB-01-valiidne-esitamine.png"
+    },
+    {
+      "id": "BB-02",
+      "area": "black-box",
+      "title": "Täiesti tühi kontaktvorm",
+      "expected": "Kuvatakse kõik kolm veateadet: nimi, e-post ja sõnum; eduteadet ei kuvata.",
+      "actual": "dialoogid=[]; vead=[\"Nimi peab olema vähemalt 2 tähemärki pikk.\",\"Palun sisestage korrektne e-posti aadress.\",\"Sõnum peab olema vähemalt 10 tähemärki pikk.\"]",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 260,
+      "screenshot": "docs/screenshots/BB-02-tyhi-vorm.png"
+    },
+    {
+      "id": "BB-03",
+      "area": "black-box",
+      "title": "Nime alampiir: üks tähemärk",
+      "expected": "Kuvatakse ainult nime veateade; e-post ja sõnum on korrektsed.",
+      "actual": "dialoogid=[]; vead=[\"Nimi peab olema vähemalt 2 tähemärki pikk.\",\"\",\"\"]",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 251,
+      "screenshot": null
+    },
+    {
+      "id": "BB-04",
+      "area": "black-box",
+      "title": "Nime ja sõnumi täpsed alampiirid",
+      "expected": "Nimi pikkusega 2 ja sõnum pikkusega 10 märki läbivad valideerimise; kuvatakse eduteade.",
+      "actual": "dialoogid=[\"Vorm esitati edukalt!\"]; vead=[\"\",\"\",\"\"]",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 250,
+      "screenshot": null
+    },
+    {
+      "id": "BB-05",
+      "area": "black-box",
+      "title": "Sõnumi alampiir: üheksa tähemärki",
+      "expected": "Kuvatakse ainult sõnumi veateade; nimi ja e-post on korrektsed.",
+      "actual": "dialoogid=[]; vead=[\"\",\"\",\"Sõnum peab olema vähemalt 10 tähemärki pikk.\"]",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 254,
+      "screenshot": null
+    },
+    {
+      "id": "BB-06",
+      "area": "black-box",
+      "title": "E-post ilma @-märgita",
+      "expected": "Kuvatakse ainult e-posti veateade; nimi ja sõnum on korrektsed.",
+      "actual": "dialoogid=[]; vead=[\"\",\"Palun sisestage korrektne e-posti aadress.\",\"\"]",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 247,
+      "screenshot": null
+    },
+    {
+      "id": "BB-07",
+      "area": "black-box",
+      "title": "Ainult tühikutest koosnevad väljad trimmitakse",
+      "expected": "Nime ja sõnumi tühikud eemaldatakse; mõlemad väljad loetakse tühjaks ja kuvatakse vead.",
+      "actual": "dialoogid=[]; vead=[\"Nimi peab olema vähemalt 2 tähemärki pikk.\",\"\",\"Sõnum peab olema vähemalt 10 tähemärki pikk.\"]",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 249,
+      "screenshot": null
+    },
+    {
+      "id": "BB-08",
+      "area": "black-box",
+      "title": "Veateadete tühjendamine kordusestil",
+      "expected": "Pärast esimest ebaõnnestunud ja seejärel korrektset esitamist on kõik veateated tühjad.",
+      "actual": "esimesed vead=[\"Nimi peab olema vähemalt 2 tähemärki pikk.\",\"Palun sisestage korrektne e-posti aadress.\",\"Sõnum peab olema vähemalt 10 tähemärki pikk.\"]; teised vead=[\"\",\"\",\"\"]; dialoogid=[\"Vorm esitati edukalt!\"]",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 415,
+      "screenshot": null
+    },
+    {
+      "id": "BB-09",
+      "area": "black-box",
+      "title": "Suurtähtedega e-posti aadress",
+      "expected": "Aadress MARI@EXAMPLE.COM on korrektne ja vorm esitatakse edukalt.",
+      "actual": "dialoogid=[]; vead=[\"\",\"Palun sisestage korrektne e-posti aadress.\",\"\"]",
+      "status": "FAIL",
+      "defect": "D-01",
+      "durationMs": 269,
+      "screenshot": "docs/screenshots/BB-09-suurtahd-email.png"
+    },
+    {
+      "id": "BB-10",
+      "area": "black-box",
+      "title": "Neljatäheline tippdomeen (.info)",
+      "expected": "Aadress mari@example.info on korrektne ja vorm esitatakse edukalt.",
+      "actual": "dialoogid=[]; vead=[\"\",\"Palun sisestage korrektne e-posti aadress.\",\"\"]",
+      "status": "FAIL",
+      "defect": "D-01",
+      "durationMs": 283,
+      "screenshot": "docs/screenshots/BB-10-info-domeen.png"
+    },
+    {
+      "id": "BB-11",
+      "area": "black-box",
+      "title": "Topelt-@ e-posti aadress",
+      "expected": "Aadress a@@b.com on kehtetu ja selle kohta kuvatakse e-posti veateade.",
+      "actual": "dialoogid=[\"Vorm esitati edukalt!\"]; vead=[\"\",\"\",\"\"]",
+      "status": "FAIL",
+      "defect": "D-02",
+      "durationMs": 284,
+      "screenshot": "docs/screenshots/BB-11-topelt-at.png"
+    },
+    {
+      "id": "GB-01",
+      "area": "gray-box",
+      "title": "Liitmine: 2 ja 3",
+      "expected": "Tulemuseks kuvatakse „Tulemus: 5“.",
+      "actual": "tulemus=\"Tulemus: 5\"",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 228,
+      "screenshot": null
+    },
+    {
+      "id": "GB-02",
+      "area": "gray-box",
+      "title": "Lahutamine: 10 ja 4",
+      "expected": "Tulemuseks kuvatakse „Tulemus: 6“.",
+      "actual": "tulemus=\"Tulemus: 6\"",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 217,
+      "screenshot": null
+    },
+    {
+      "id": "GB-03",
+      "area": "gray-box",
+      "title": "Korrutamine: 6 ja 7",
+      "expected": "Tulemuseks kuvatakse „Tulemus: 42“.",
+      "actual": "tulemus=\"Tulemus: 42\"",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 213,
+      "screenshot": null
+    },
+    {
+      "id": "GB-04",
+      "area": "gray-box",
+      "title": "Jagamine: 9 ja 3",
+      "expected": "Tulemuseks kuvatakse „Tulemus: 3“.",
+      "actual": "tulemus=\"Tulemus: 3\"",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 221,
+      "screenshot": null
+    },
+    {
+      "id": "GB-08",
+      "area": "gray-box",
+      "title": "Negatiivne esimene arv: -5 ja 3",
+      "expected": "Tulemuseks kuvatakse „Tulemus: -2“.",
+      "actual": "tulemus=\"Tulemus: -2\"",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 230,
+      "screenshot": null
+    },
+    {
+      "id": "GB-05",
+      "area": "gray-box",
+      "title": "Nulliga jagamine",
+      "expected": "Kuvatakse teade „Jagamine nulliga ei ole lubatud!“ ja arvutustulemust ei kuvata.",
+      "actual": "tulemus=\"Jagamine nulliga ei ole lubatud!\"",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 260,
+      "screenshot": "docs/screenshots/GB-05-nulliga-jagamine.png"
+    },
+    {
+      "id": "GB-06",
+      "area": "gray-box",
+      "title": "Mõlemad sisendid tühjad",
+      "expected": "Kuvatakse teade „Sisesta kaks kehtivat numbrit!“ ja tulemust ei arvutata.",
+      "actual": "tulemus=\"Sisesta kaks kehtivat numbrit!\"",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 228,
+      "screenshot": null
+    },
+    {
+      "id": "GB-07",
+      "area": "gray-box",
+      "title": "Üks sisenditest on tühi",
+      "expected": "Kuvatakse teade „Sisesta kaks kehtivat numbrit!“ ja tulemust ei arvutata.",
+      "actual": "tulemus=\"Sisesta kaks kehtivat numbrit!\"",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 212,
+      "screenshot": null
+    },
+    {
+      "id": "GB-09",
+      "area": "gray-box",
+      "title": "Kümnendmurruga arvutamine (1,5 + 2,5)",
+      "expected": "Kalkulaator võimaldab sisestada kümnendmurde ja kuvab tulemuse „Tulemus: 4“.",
+      "actual": "tulemus=\"\"; vorm kehtiv=false; stepMismatch=true/true; brauseri teade=\"Please enter a valid value. The two nearest valid values are 1 and 2.\"",
+      "status": "FAIL",
+      "defect": "D-03",
+      "durationMs": 271,
+      "screenshot": "docs/screenshots/GB-09-kumnendmurd.png"
+    },
+    {
+      "id": "GB-10",
+      "area": "gray-box",
+      "title": "Ujukomaarvu täpsus (0,1 + 0,2)",
+      "expected": "Tulemuseks kuvatakse „Tulemus: 0.3“, mitte ujukomaarvu jääk.",
+      "actual": "tulemus=\"Tulemus: 0.30000000000000004\"",
+      "status": "FAIL",
+      "defect": "D-04",
+      "durationMs": 222,
+      "screenshot": "docs/screenshots/GB-10-ujukomaarv.png"
+    },
+    {
+      "id": "GB-11",
+      "area": "gray-box",
+      "title": "Numbrilise väärtuse ületäitumine",
+      "expected": "Väga suure korrutise korral kuvatakse arusaadav veateade, mitte „Infinity“.",
+      "actual": "tulemus=\"Tulemus: Infinity\"",
+      "status": "FAIL",
+      "defect": "D-05",
+      "durationMs": 259,
+      "screenshot": "docs/screenshots/GB-11-infinity.png"
+    },
+    {
+      "id": "GB-12",
+      "area": "gray-box",
+      "title": "Tundmatu tehte käsitlemine",
+      "expected": "Tundmatu tehte korral kuvatakse veateade ega kuvata vaikimisi väärtust 0.",
+      "actual": "tulemus=\"Tulemus: 0\"",
+      "status": "FAIL",
+      "defect": "D-06",
+      "durationMs": 238,
+      "screenshot": "docs/screenshots/GB-12-tundmatu-tehe.png"
+    },
+    {
+      "id": "WB-01",
+      "area": "white-box",
+      "title": "Tavaline summa: 30 + 20",
+      "expected": "Kuvatakse „Summa on: 50“.",
+      "actual": "tulemus=\"Summa on: 50\"",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 248,
+      "screenshot": "docs/screenshots/WB-01-tavaline-summa.png"
+    },
+    {
+      "id": "WB-02",
+      "area": "white-box",
+      "title": "Summa üle 100: 60 + 50",
+      "expected": "Kuvatakse „Summa on suurem kui 100!“.",
+      "actual": "tulemus=\"Summa on suurem kui 100!\"",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 252,
+      "screenshot": "docs/screenshots/WB-02-summa-le-100.png"
+    },
+    {
+      "id": "WB-03",
+      "area": "white-box",
+      "title": "Täpselt 100 (piirijuht): 50 + 50",
+      "expected": "Kuvatakse „Summa on: 100“.",
+      "actual": "tulemus=\"Summa on: 100\"",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 249,
+      "screenshot": "docs/screenshots/WB-03-t-pselt-100-piirijuht-.png"
+    },
+    {
+      "id": "WB-04",
+      "area": "white-box",
+      "title": "Nullide summa: 0 + 0",
+      "expected": "Kuvatakse „Summa on: 0“.",
+      "actual": "tulemus=\"Summa on: 0\"",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 251,
+      "screenshot": "docs/screenshots/WB-04-nullide-summa.png"
+    },
+    {
+      "id": "WB-05",
+      "area": "white-box",
+      "title": "Negatiivne summa: -10 + 5",
+      "expected": "Kuvatakse „Summa on: -5“.",
+      "actual": "tulemus=\"Summa on: -5\"",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 252,
+      "screenshot": "docs/screenshots/WB-05-negatiivne-summa.png"
+    },
+    {
+      "id": "WB-09",
+      "area": "white-box",
+      "title": "100 + 1 (piirist üle): 100 + 1",
+      "expected": "Kuvatakse „Summa on suurem kui 100!“.",
+      "actual": "tulemus=\"Summa on suurem kui 100!\"",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 267,
+      "screenshot": "docs/screenshots/WB-09-100-1-piirist-le-.png"
+    },
+    {
+      "id": "WB-06",
+      "area": "white-box",
+      "title": "Kümnendmurdude summa kasutajaliideses (1,5 + 2,5)",
+      "expected": "Vorm võimaldab sisestada kümnendarve ja kuvab tulemuse „Summa on: 4“.",
+      "actual": "tulemus=\"\"; vorm kehtiv=false; stepMismatch=true/true; brauseri teade=\"Please enter a valid value. The two nearest valid values are 1 and 2.\"",
+      "status": "FAIL",
+      "defect": "D-03",
+      "durationMs": 264,
+      "screenshot": "docs/screenshots/WB-06-kumnendmurd.png"
+    },
+    {
+      "id": "WB-07",
+      "area": "white-box",
+      "title": "Kümnendmurdude summa otsekutsega (1,5 + 2,5)",
+      "expected": "Funktsioon arvutaSumma() liidab kümnendarvud täpselt: tulemus 4.",
+      "actual": "tulemus=\"Summa on: 3\"",
+      "status": "FAIL",
+      "defect": "D-07",
+      "durationMs": 115,
+      "screenshot": "docs/screenshots/WB-07-parseint.png"
+    },
+    {
+      "id": "WB-08",
+      "area": "white-box",
+      "title": "Tühjade sisendite otsekutse",
+      "expected": "Funktsioon käsitleb tühje sisendeid veateatega ega kuva teksti „NaN“.",
+      "actual": "tulemus=\"Summa on: NaN\"",
+      "status": "FAIL",
+      "defect": "D-08",
+      "durationMs": 81,
+      "screenshot": "docs/screenshots/WB-08-nan.png"
+    },
+    {
+      "id": "UI-01",
+      "area": "ui",
+      "title": "Kontaktvormi siltide seotus väljadega",
+      "expected": "Kõigil kolmel väljal on temaga seotud label-element (for/id vastavus).",
+      "actual": "[{\"for\":\"name\",\"text\":\"Nimi:\",\"targetExists\":true},{\"for\":\"email\",\"text\":\"E-posti aadress:\",\"targetExists\":true},{\"for\":\"message\",\"text\":\"Sõnum:\",\"targetExists\":true}]",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 41,
+      "screenshot": null
+    },
+    {
+      "id": "UI-02",
+      "area": "ui",
+      "title": "Kalkulaatori väljade sildid",
+      "expected": "Kalkulaatori arvväljadel ja tehte valikul on kirjeldavad label-elementid.",
+      "actual": "{\"labelCount\":0,\"inputs\":[{\"id\":\"num1\",\"placeholder\":\"Sisesta esimene arv\",\"ariaLabel\":null,\"ariaLabelledBy\":null},{\"id\":\"num2\",\"placeholder\":\"Sisesta teine arv\",\"ariaLabel\":null,\"ariaLabelledBy\":null},{\"id\":\"operation\",\"placeholder\":null,\"ariaLabel\":null,\"ariaLabelledBy\":null}]}",
+      "status": "FAIL",
+      "defect": "D-09",
+      "durationMs": 93,
+      "screenshot": "docs/screenshots/UI-02-kalkulaator-sildid.png"
+    },
+    {
+      "id": "UI-03",
+      "area": "ui",
+      "title": "Veateadete teadaandmine ekraanilugejale",
+      "expected": "Veateated on seotud väljadega aria-describedby kaudu ja neil on aria-live/role=alert.",
+      "actual": "{\"inputs\":[{\"id\":\"name\",\"ariaDescribedBy\":null,\"ariaInvalid\":null},{\"id\":\"email\",\"ariaDescribedBy\":null,\"ariaInvalid\":null},{\"id\":\"message\",\"ariaDescribedBy\":null,\"ariaInvalid\":null}],\"errors\":[{\"id\":\"nameError\",\"role\":null,\"ariaLive\":null},{\"id\":\"emailError\",\"role\":null,\"ariaLive\":null},{\"id\":\"messageError\",\"role\":null,\"ariaLive\":null}]}",
+      "status": "FAIL",
+      "defect": "D-10",
+      "durationMs": 250,
+      "screenshot": "docs/screenshots/UI-03-veateadete-aria.png"
+    },
+    {
+      "id": "UI-04",
+      "area": "ui",
+      "title": "Vormi esitamine klaviatuuriga",
+      "expected": "Korrektselt täidetud kontaktvormi saab esitada Enter-klahviga ilma hiirekursorita.",
+      "actual": "dialoogid=[\"Vorm esitati edukalt!\"]",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 218,
+      "screenshot": null
+    },
+    {
+      "id": "UI-05",
+      "area": "ui",
+      "title": "Responsiivsus 375 px vaateaknal",
+      "expected": "Kõik kolm lehte mahuvad 375 px laiusele ekraanile ilma horisontaalse kerimiseta.",
+      "actual": "{\"black\":{\"scrollWidth\":381,\"innerWidth\":375,\"overflow\":true},\"gray\":{\"scrollWidth\":375,\"innerWidth\":375,\"overflow\":false},\"white\":{\"scrollWidth\":375,\"innerWidth\":375,\"overflow\":false}}",
+      "status": "FAIL",
+      "defect": "D-11",
+      "durationMs": 165,
+      "screenshot": "docs/screenshots/UI-05-375px-kontaktvorm.png"
+    },
+    {
+      "id": "IT-01",
+      "area": "integration",
+      "title": "Kontaktvormi veateadete DOM-i, skripti ja CSS-i koostoime",
+      "expected": "Tühja vormi esitamisel tekib nähtav punane 14 px veateade (kõigi kolme vea olemasolu kontrollib BB-02).",
+      "actual": "{\"text\":\"Nimi peab olema vähemalt 2 tähemärki pikk.\",\"color\":\"rgb(255, 0, 0)\",\"fontSize\":\"14px\",\"display\":\"block\",\"visible\":true}",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 215,
+      "screenshot": null
+    },
+    {
+      "id": "IT-02",
+      "area": "integration",
+      "title": "Kalkulaatori tulemuse DOM-i, skripti ja CSS-i koostoime",
+      "expected": "Pärast arvutust 2 + 3 on tulemuse element nähtav, tekstiga „Tulemus: 5“ ja 18 px suurune.",
+      "actual": "{\"text\":\"Tulemus: 5\",\"fontSize\":\"18px\",\"visible\":true}",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 216,
+      "screenshot": null
+    },
+    {
+      "id": "NF-01",
+      "area": "nonfunctional",
+      "title": "Lehtede laadimisaeg lokaalselt",
+      "expected": "Iga leht laadub lokaalsest failisüsteemist alla 500 ms.",
+      "actual": "{\"black\":10,\"gray\":13,\"white\":12}",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 114,
+      "screenshot": null
+    },
+    {
+      "id": "NF-02",
+      "area": "nonfunctional",
+      "title": "Välised võrgupäringud ja andmete salvestamine",
+      "expected": "Lehed ei tee väliseid võrgupäringuid ega salvesta andmeid localStorage'i, sessionStorage'i ega küpsistesse.",
+      "actual": "{\"black\":{\"externalRequests\":[],\"storage\":{\"localStorage\":0,\"sessionStorage\":0,\"cookie\":\"\"}},\"gray\":{\"externalRequests\":[],\"storage\":{\"localStorage\":0,\"sessionStorage\":0,\"cookie\":\"\"}},\"white\":{\"externalRequests\":[],\"storage\":{\"localStorage\":0,\"sessionStorage\":0,\"cookie\":\"\"}}}",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 118,
+      "screenshot": null
+    },
+    {
+      "id": "NF-03",
+      "area": "nonfunctional",
+      "title": "Sisendi turvaline kuvamine (XSS-katse)",
+      "expected": "HTML- ja skriptisisu väljadel ei käivitata; veateated kuvatakse tekstina.",
+      "actual": "{\"xss\":null,\"imgCount\":0,\"scriptCount\":1,\"nameError\":\"\"}; dialoogid=[\"Vorm esitati edukalt!\"]",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 217,
+      "screenshot": null
+    },
+    {
+      "id": "NF-04",
+      "area": "nonfunctional",
+      "title": "Konsooli ja JavaScripti vead",
+      "expected": "Ühelgi lehel ei teki konsolivigu ega käsitlemata JavaScripti erindeid.",
+      "actual": "{\"black\":{\"consoleErrors\":[],\"pageErrors\":[]},\"gray\":{\"consoleErrors\":[],\"pageErrors\":[]},\"white\":{\"consoleErrors\":[],\"pageErrors\":[]}}",
+      "status": "PASS",
+      "defect": null,
+      "durationMs": 416,
+      "screenshot": null
+    }
+  ]
+}
